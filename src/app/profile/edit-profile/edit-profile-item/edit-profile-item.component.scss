@@ -1,0 +1,9 @@
+$color-secondary: #14173d;
+
+h5:hover, h6:hover {
+  cursor: pointer;
+}
+
+.form-control:focus{
+  color: $color-secondary;
+}

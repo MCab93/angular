@@ -1,0 +1,22 @@
+<div class="row pt-4 center-align">
+  <div class="col-2">
+    <img
+      src="../../assets/images/NextWhite@3x.png"
+      alt="back"
+      class="{{ backArrowClass }}"
+      *ngIf="backArrowVissible"
+      (click)="onBack()"
+    />
+  </div>
+  <div class="col-8">
+    <img src="../../assets/images/LogoHeader@3x.png" alt="logo" />
+  </div>
+  <div class="col-2">
+    <img
+      src="../../assets/images/Selfie@3x.png"
+      alt="back"
+      class="img-inverted"
+      *ngIf="profileImageVissible"
+    />
+  </div>
+</div>

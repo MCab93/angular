@@ -1,0 +1,174 @@
+$font-family-primary: "Gilroy";
+$font-family-secondary: Open Sans;
+$font-style-bold: bold;
+$font-style-medium: Medium;
+$font-style-regular: Regular;
+$font-size-primary: 18pt;
+$font-size-secondary: 12pt;
+$line-height: 24pt;
+$text-align-center: center;
+$text-align-left: left;
+$color-primary: #ea573e;
+$color-secondary: #14173d;
+$color-tertiary: #1fd6ba;
+$color-white: #ffffff;
+$color-background-primary: #18143c;
+$border-width: 3px;
+$button-border: $border-width solid $color-white;
+$cursor: "pointer";
+$button-width: 200px;
+$img-height-50: 50px;
+
+html, body { height: 100%; }
+
+body {
+  font-family: $font-family-primary, arial;
+}
+
+h1 {
+  font-weight: $font-style-bold;
+  font-size: $font-size-primary;
+  line-height: $line-height;
+  text-align: $text-align-center;
+  color: $color-primary;
+}
+
+h2 {
+  font-style: $font-style-medium;
+  font-size: $font-size-primary;
+  line-height: $line-height;
+  text-align: $text-align-center;
+  color: $color-white;
+}
+
+h3 {
+  font-style: $font-style-medium;
+  font-size: $font-size-primary;
+  line-height: $line-height;
+  text-align: $text-align-left;
+  color: $color-secondary;
+}
+
+h4 {
+  font-style: $font-style-medium;
+  font-size: $font-size-secondary;
+  line-height: $line-height;
+  text-align: $text-align-left;
+  color: $color-secondary;
+}
+
+h5 {
+  font-style: $font-style-medium;
+  font-size: $font-size-secondary;
+  line-height: $line-height;
+  text-align: $text-align-left;
+  color: $color-tertiary;
+}
+
+h6 {
+  font-style: $font-style-medium;
+  font-size: $font-size-secondary;
+  line-height: $line-height;
+  text-align: $text-align-left;
+  color: $color-primary;
+}
+
+.p1 {
+  font-family: $font-family-secondary;
+  font-style: $font-style-regular;
+  font-size: $font-size-secondary;
+  line-height: $line-height;
+  text-align: $text-align-left;
+  color: $color-white;
+}
+
+.p1.error {
+  color: $color-primary;
+}
+
+button {
+  font-style: $font-style-bold;
+  font-size: $font-size-primary;
+  line-height: $line-height;
+  text-align: $text-align-left;
+  background-color: $color-background-primary;
+  border: $button-border;
+  width: $button-width;
+  color: $color-white;
+  cursor: $cursor;
+}
+
+button:hover{
+  color: $color-primary;
+  background-color: $color-white;
+}
+
+button:hover .img-filter {
+  filter: invert(43%) sepia(91%) saturate(2928%) hue-rotate(341deg) brightness(102%) contrast(84%);
+}
+
+.footer{
+  position: relative;
+  padding-bottom: 4%;
+  padding-top: 10%;
+  width: 100%;
+}
+
+.form-control{
+  border-radius: 0;
+  border: $button-border;
+  background: $color-background-primary;
+}
+
+.form-control:focus{
+  border: $button-border;
+  background: $color-background-primary;
+  color: $color-white;
+}
+
+.form-control.error{
+  border: $button-border;
+  border-color: $color-primary;
+  color: $color-primary;
+  background: inherit;
+}
+
+.form-control.no-border, .form-control.no-border:focus{
+  border: 0;
+  background: inherit;
+}
+
+label{
+  font-size: $font-size-secondary;
+  color: gray;
+}
+
+.filter-color-primary {
+  filter: invert(43%) sepia(91%) saturate(2928%) hue-rotate(341deg) brightness(102%) contrast(84%);
+}
+
+.background-primary {
+  background-color: $color-background-primary;
+}
+
+.background-white {
+  background-color: $color-white;
+}
+
+.img-height {
+  height: $img-height-50;
+}
+
+.center-align {
+  text-align: $text-align-center;
+  align-self: $text-align-center;
+}
+
+.input-align {
+  margin: auto;
+  width: 40%;
+}
+
+.border {
+  border: $button-border
+}

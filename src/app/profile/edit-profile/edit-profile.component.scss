@@ -1,0 +1,20 @@
+$color-primary: #ea573e;
+$color-white: #ffffff;
+
+button {
+  background-color: $color-white;
+  color: $color-primary;
+  border-color: $color-primary;
+}
+
+.img-filter {
+  filter: invert(43%) sepia(91%) saturate(2928%) hue-rotate(341deg) brightness(102%) contrast(84%);
+}
+
+.img-small {
+  width: 30pt
+}
+
+.img-margin {
+  margin-right: 10pt;
+}
