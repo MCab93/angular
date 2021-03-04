@@ -24,6 +24,9 @@ export class LoaderEffect implements OnRunEffects {
     private resourcesService: ResourcesService
   ) {}
 
+  // MH: toto nepridava zadnou hodnotu...naopak to prinasi jen problemy...to ze potrebuje delat nejakou inicializaci je nekdy nutne ale tady v tomto pripade to dela jen problemy s finishAppInitializer
+  // ty hlavni duvody jsou ty ze bezici akce mezi startAppInitializer a finishAppInitializer bezi v jednom vlaknu a co se dejeme mezi start a finish se nakonec rusi takze pak je videt v app v dev tools v network tab ze se
+  // canceled request na data.json
   ngrxOnRunEffects(
     resolvedEffects$: Observable<EffectNotification>
   ): Observable<EffectNotification> {

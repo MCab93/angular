@@ -37,6 +37,7 @@ export class IntroductionComponent implements OnInit {
   }
 
   onStart() {
+    // memory leak plus toto se dava do construktoru
     this.store.select(onboardedSelector).subscribe((onboarded) => {
       if (onboarded) {
         this.redirectPath = '/edit-profile';

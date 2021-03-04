@@ -56,7 +56,7 @@ export const appStateReducer = createReducer(
   })),
   on(saveName, (state, { username }) => ({ ...state, loginName: username })),
   on(login, (state) => ({ ...state, onboarded: true })),
-  on(logout, () => ({} as AppState)),
+  on(logout, () => (initialState as AppState)), // MH: tady nemuzis nastavovat prazdny object {} as AppState protoze pak profile ve storu bude null a tudis ti selectory budou hazet chybu. Dobre je vratit store do puvodniho stavu jako je initialState ktery pouzivat pri vytvareni store
   on(editUserItem, (state, { itemKey, itemValue }) => ({
     ...state,
     user: setUserItem(state.user, itemKey, itemValue),

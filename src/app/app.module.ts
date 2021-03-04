@@ -63,16 +63,24 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 })
 export class AppModule {}
 
+// MH: super pro inincializci aplikaci, hlavne se to pouziva kdyz potrebuje nacist nejake data ktere potrebujeme aby app mela nez se spusti
+// v tomto pripade to neni potreba takze toto neni dobry priklad pouziti. Dam priklad...mame app ktera potrebuje znat externi konfiguraci nebo si taha data z api pro lokalizace a my nechteme
+// nebo nemuzeme spustit app bez techto dat
+// v tomto pripade se jedna o load nejakeho uzivatele ktey muzeme klidne nacist az se aplikace nacte. Navic ty data ktera se nacitaji nejsou uplne strategicky dulezita a kdyby ti spadlo volani api na nejaky endpoint ktery zrovna nepojede tak se ti nenacte app a budes mit bilou obrazovku
+// ale jinak malo angular vyvojaru zna token APP_INITIALIZER a jak se pouziva takze super ze vis jak na to ale nevhodne pouzite
 export function initApplication(store: Store<AppState>): Function {
   return () =>
-    new Promise((resolve) => {
+    new Promise((resolve, reject) => {
       store.dispatch(startAppInitializer());
       store.dispatch(loadData());
       store
         .select((state: any) => state['profile']['user'])
         .subscribe((users: User) => {
-          if (users.name !== undefined) {
-            store.dispatch(finishAppInitializer());
+          // MH: tady mas problem kdyz object user bude undefined | null tak ti to bude padat ze name property neexistuje a dalsi vec je ta ze kdyz ti to tady spadne tak nemas nikde handling reject takze se tento promise nikdy neukonci ani chybou protoze porad bude cekat na resolve
+          if (users?.name !== undefined) {
+            // MH: toto jsem popsal v effect kde se resit start a finis (app.effects.ts)
+            // kdyz toto zakomentuji tak je videt ze nacitani neskonci canceled requestu
+            // store.dispatch(finishAppInitializer());
             resolve(true);
           }
         });
